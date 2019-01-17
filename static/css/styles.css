@@ -1,0 +1,182 @@
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+/* On mouse-over */
+.btn:hover {
+    background: #F5E1EE;
+}
+
+.success {
+    color: #595959;
+}
+
+body {
+    /*background-color: #fff;*/
+    /*padding: 15vh;*/
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #595959;
+    font-weight: 400;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 2.5vh;
+    background-color: #DCECFE;
+    background: -webkit-linear-gradient(-450deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, -webkit-linear-gradient(-450deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, -webkit-linear-gradient(-450deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, -webkit-linear-gradient(-450deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, -webkit-linear-gradient(-450deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, -webkit-linear-gradient(-390deg, #DCECFE 0%, #F5E1EE 100%) no-repeat;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.05)) repeat-y, linear-gradient(120deg, #DCECFE 0%, #F5E1EE 100%) no-repeat;
+    background-position: 10%, 30%, 50%, 70%, 90%, 0;
+    background-size: 2px auto, 2px auto, 2px auto, 2px auto, 2px auto, 100% auto;
+    background-attachment: fixed;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.left {
+    float: left;
+    width: 30%;
+    padding: 10px;
+}
+
+.right {
+    float: right;
+    width: 70%;
+    padding: 10px;
+}
+
+input[type=text]:focus {
+    outline: none;
+    border: 3px solid #555;
+
+}
+
+/*for word cloud*/
+#myChart {
+    height: 100%;
+    width: 100%;
+    min-height: 150px;
+}
+
+.zc-ref {
+    display: none;
+}
+
+/*for word cloud*/
+
+
+/*links */
+#related_links {
+    width: 12em;
+    border-right: 1px solid #000;
+    padding: 0 0 1em 0;
+    margin-bottom: 1em;
+    font-family: 'Trebuchet MS', 'Lucida Grande',
+    Verdana, Lucida, Geneva, Helvetica,
+    Arial, sans-serif;
+    background-color: #90bade;
+    color: #333;
+}
+
+#related_links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+#related_links li {
+    border-bottom: 1px solid #90bade;
+    margin: 0;
+}
+
+#related_links li a {
+    display: block;
+    padding: 5px 5px 5px 0.5em;
+    border-left: 10px solid #1958b7;
+    border-right: 10px solid #508fc4;
+    background-color: #2175bc;
+    color: #fff;
+    text-decoration: none;
+    width: 100%;
+}
+
+html > body #related_links li a {
+    width: auto;
+}
+
+#related_links li a:hover {
+    border-left: 10px solid #1c64d1;
+    border-right: 10px solid #5ba3e0;
+    background-color: #2586d7;
+    color: #fff;
+}
+
+/*links */
+
+.left .percentage h1 b {
+    text-align: center;
+}
+
+
+/*percentage*/
+@keyframes donut-chart-fill {
+    to {
+        stroke-dasharray: 100;
+        /*0 100*/
+    }
+}
+
+body {
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #333;
+}
+
+.svg-item {
+    width: 200px;
+    height: 200px;
+    font-size: 16px;
+}
+
+.donut-ring {
+    stroke: #EBEBEB;
+}
+
+.donut-segment {
+    animation: donut-chart-fill 1s reverse ease-in;
+    transform-origin: center;
+    stroke: #FF6200;
+}
+
+.donut-text {
+    font-family: Arial, Helvetica, sans-serif;
+    fill: #FF6200;
+}
+
+.donut-label {
+    font-size: 0.28em;
+    font-weight: 700;
+    line-height: 1;
+    fill: #000;
+    transform: translateY(0.25em);
+}
+
+.donut-percent {
+    font-size: 0.5em;
+    fill: #FF6200;
+    line-height: 1;
+    transform: translateY(0.5em);
+}
+
+

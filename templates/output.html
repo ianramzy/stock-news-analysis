@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sentiment Analysis {{ ticker }}</title>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">   <!--Prevent favicon errors-->
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+    <style>
+        @keyframes donut-chart-fill {
+            to {
+                stroke-dasharray: 0 100;
+            }
+        }
+
+        .svg-item {
+            width: 80%;
+            height: 80%;
+            font-size: 16px;
+        }
+
+        .donut-ring {
+            stroke: #EBEBEB;
+        }
+
+        .donut-segment {
+            animation: donut-chart-fill 1s reverse ease-in;
+            transform-origin: center;
+            stroke: #595959;
+        }
+
+        .donut-text {
+            font-family: Arial, Helvetica, sans-serif;
+            fill: #595959;
+        }
+
+        .donut-percent {
+            font-size: 0.5em;
+            fill: #595959;
+            line-height: 1;
+            transform: translateY(0.5em);
+        }
+    </style>
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body scroll="no" style="overflow: hidden">
+
+<h1>Sentiment Analysis for {{ ticker }}</h1>
+
+<div class="left" style="background-color:rgba(170,170,170,0.12);">
+    <h2>Rating</h2>
+    <p>higher = more positive news</p>
+    <div class="svg-item">
+        <svg width="100%" height="100%" viewBox="0 0 40 40" class="donut">
+            <circle class="donut-hole" cx="20" cy="20" r="15.91549430918954" fill="transparent"></circle>
+            <circle class="donut-ring" cx="20" cy="20" r="15.91549430918954" fill="transparent"
+                    stroke-width="3.5"></circle>
+            <circle class="donut-segment" cx="20" cy="20" r="15.91549430918954" fill="transparent" stroke-width="3.5"
+                    stroke-dasharray="{{ analysis }} {{ otherHalf }}" stroke-dashoffset="25"></circle>
+            <g class="donut-text">
+                <text y="50%" transform="translate(0, 2)">
+                    <tspan x="50%" text-anchor="middle" class="donut-percent">{{ analysis }}%</tspan>
+                </text>
+            </g>
+        </svg>
+    </div>
+
+
+    <h3>Most recent {{ ticker }} articles</h3>
+    <p>
+    <div id="links">
+        <ul>
+            <li><a href="{{ links[0] }}" target="_blank">News Article 1</a></li>
+            <li><a href="{{ links[1] }}" target="_blank">News Article 2</a></li>
+            <li><a href="{{ links[2] }}" target="_blank">News Article 3</a></li>
+        </ul>
+    </div>
+    </p>
+</div>
+
+<div class="right">
+    <h2>Words Used to Describe {{ ticker }}</h2>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+    <div id="myChart"></div>
+    <script>
+        function decodeHtml(html) {
+            var txt = document.createElement("textarea");
+            txt.innerHTML = html;
+            return txt.value;
+        }
+
+        var cloud = '{{ sentance }}';
+        cloud = decodeHtml(cloud);
+        var myConfig = {
+            type: 'wordcloud',
+            options: {
+                text: cloud,
+            },
+
+            backgroundColor: 'none', // This is in the root
+            plotarea: {
+                backgroundColor: 'transparent'
+            },
+        };
+
+        zingchart.render({
+            id: 'myChart',
+            data: myConfig,
+            height: 400,
+            width: '100%',
+            backgroundColor: 'none', // This is in the root
+        });
+
+
+    </script>
+</div>
+
+</body>
+
+</html>

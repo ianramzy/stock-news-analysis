@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sentiment Analysis</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/styles.css">
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<body scroll="no" style="overflow: hidden">
+<h1>Sentiment Analysis</h1>
+<p>Tired of reading through all of the financial news, just to stay up to date for a given company? With this tool have no worries, enter in a stock ticker below to get started. We'll handle scraping data from dozens of articles off of Nasdaq.com and running them through our best machine learning model.</p>
+
+<div class="left" style="background-color:rgba(170,170,170,0.12);">
+    <h2>About</h2>
+    <p>Enter a stock ticker to get started &darr;</p>
+    <form action="http://localhost:5000/result" method="POST">
+        <label>
+            <input type="text" name="Name" value="i.e. AAPL"/>
+        </label>
+        <button class="btn success">Enter</button>
+    </form>
+</div>
+
+<div class="right" style="background-color:rgba(187,187,187,0.12);">
+<!--     <h2>Stock Chart</h2> -->
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div id="tradingview_c326c"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+        <script type="text/javascript">
+            new TradingView.widget(
+                {
+                    "width": outerWidth * 0.7,
+                    "height": outerHeight - 350,
+                    "symbol": "NASDAQ:AAPL",
+                    "interval": "W",
+                    "timezone": "Etc/UTC",
+                    "theme": "Dark",
+                    "style": "1",
+                    "locale": "en",
+                    "toolbar_bg": "#f1f3f6",
+                    "enable_publishing": false,
+                    "allow_symbol_change": true,
+                    "save_image": false,
+                    "show_popup_button": true,
+                    "popup_width": "1000",
+                    "popup_height": "650",
+                    "container_id": "tradingview_c326c"
+                }
+            );
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
+</div>
+
+</body>
+</html>
