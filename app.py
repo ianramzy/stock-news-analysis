@@ -46,8 +46,8 @@ def get_articles(ticker):
                 publish_date = str(link.parent.parent.find('small'))[31:41]
                 publish_date = publish_date.strip(" ").split("/")
                 if publish_date != ['']:
-                    date_num = int(publish_date[2]) * 10000 + int(publish_date[0]) * 100 + int(publish_date[1])
-                    articles.append([date_num, current_link])
+                    # date_num = int(publish_date[2]) * 10000 + int(publish_date[0]) * 100 + int(publish_date[1])
+                    articles.append([1, current_link])
     print(str(len(articles)) + " articles found")
     return articles
 
@@ -110,7 +110,7 @@ def remove_common_words(listOfWords):
                    "investor's", "investors", "last", "trade", "price", "business", "zacks", "company's", "here", "inc",
                    "per", "click", "new", "--", "our", "fool", "each", "", "nasdaq", "(", ")", "were", "current",
                    "those", "-", "believe", "financial", "share", "percent.", "*", "", "motley", "over", "nasdaq:",
-                   "percent,", "index", "would", "total", "them", "much", "my", "still", "into", "had", "since", "500", "s&p", "friday", "shares", "nasdaq", "trading", "day", "time", "to", 'like']
+                   "percent,", "index", "would", "total", "them", "much", "my", "still", "into", "had", "since", "500", "s&p", "friday", "shares", "nasdaq", "trading", "day", "time", "to", "like","pct"]
     cleanList = []
     for word in listOfWords:
         if word not in commonWords:
